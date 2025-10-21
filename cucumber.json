@@ -1,0 +1,65 @@
+{
+  "default": {
+    "requireModule": ["ts-node/register"],
+    "require": [
+      "tests/e2e/step-definitions/**/*.ts",
+      "tests/e2e/hooks/**/*.ts",
+      "tests/api/step-definitions/**/*.ts",
+      "tests/api/utils/api-hooks.ts"
+    ],
+    "format": [
+      "progress-bar",
+      "html:test-results/cucumber-report.html",
+      "json:test-results/cucumber-report.json",
+      "allure-cucumberjs/reporter"
+    ],
+    "formatOptions": {
+      "resultsDir": "allure-results"
+    },
+    "parallel": 2,
+    "retry": 1,
+    "retryTagFilter": "@flaky",
+    "publishQuiet": true,
+    "dryRun": false,
+    "paths": [
+      "tests/e2e/features/**/*.feature",
+      "tests/api/features/**/*.feature"
+    ]
+  },
+  "e2e": {
+    "requireModule": ["ts-node/register"],
+    "require": ["tests/e2e/step-definitions/**/*.ts", "tests/e2e/hooks/**/*.ts"],
+    "format": [
+      "progress-bar",
+      "html:test-results/e2e-report.html",
+      "json:test-results/e2e-report.json",
+      "allure-cucumberjs/reporter"
+    ],
+    "formatOptions": {
+      "resultsDir": "allure-results"
+    },
+    "parallel": 2,
+    "retry": 1,
+    "retryTagFilter": "@flaky",
+    "publishQuiet": true,
+    "paths": ["tests/e2e/features/**/*.feature"]
+  },
+  "api": {
+    "requireModule": ["ts-node/register"],
+    "require": ["tests/api/step-definitions/**/*.ts", "tests/api/utils/api-hooks.ts"],
+    "format": [
+      "progress-bar",
+      "html:test-results/api-report.html",
+      "json:test-results/api-report.json",
+      "allure-cucumberjs/reporter"
+    ],
+    "formatOptions": {
+      "resultsDir": "allure-results"
+    },
+    "parallel": 3,
+    "retry": 1,
+    "retryTagFilter": "@flaky",
+    "publishQuiet": true,
+    "paths": ["tests/api/features/**/*.feature"]
+  }
+}

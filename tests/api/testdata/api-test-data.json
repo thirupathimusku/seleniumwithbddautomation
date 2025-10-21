@@ -1,0 +1,82 @@
+{
+  "authentication": {
+    "validCredentials": {
+      "admin": {
+        "username": "Admin",
+        "password": "admin123"
+      }
+    },
+    "invalidCredentials": {
+      "wrongUsername": {
+        "username": "InvalidUser",
+        "password": "admin123"
+      },
+      "wrongPassword": {
+        "username": "Admin",
+        "password": "wrongpassword"
+      },
+      "emptyUsername": {
+        "username": "",
+        "password": "admin123"
+      },
+      "emptyPassword": {
+        "username": "Admin",
+        "password": ""
+      }
+    }
+  },
+  "users": {
+    "createUser": {
+      "username": "testuser_api",
+      "password": "Test@123",
+      "status": true,
+      "userRoleId": 2,
+      "empNumber": null
+    },
+    "updateUser": {
+      "username": "testuser_updated",
+      "status": false
+    },
+    "searchCriteria": {
+      "username": "Admin",
+      "userRoleId": 1,
+      "status": true
+    }
+  },
+  "endpoints": {
+    "auth": {
+      "login": "/web/index.php/auth/validate",
+      "logout": "/web/index.php/auth/logout"
+    },
+    "users": {
+      "base": "/web/index.php/api/v2/admin/users",
+      "search": "/web/index.php/api/v2/admin/users/search"
+    }
+  },
+  "expectedResponses": {
+    "authentication": {
+      "successStatusCode": 200,
+      "failureStatusCode": 401,
+      "badRequestStatusCode": 400
+    },
+    "users": {
+      "getSuccessStatusCode": 200,
+      "createSuccessStatusCode": 201,
+      "updateSuccessStatusCode": 200,
+      "deleteSuccessStatusCode": 200,
+      "notFoundStatusCode": 404
+    }
+  },
+  "performance": {
+    "maxResponseTime": {
+      "authentication": 3000,
+      "userCRUD": 2000,
+      "search": 5000
+    }
+  },
+  "pagination": {
+    "defaultLimit": 50,
+    "maxLimit": 100,
+    "defaultOffset": 0
+  }
+}
