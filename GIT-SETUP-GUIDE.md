@@ -51,6 +51,7 @@ git remote add origin https://github.com/YOUR_USERNAME/orangehrm-automation.git
 git remote -v
 ```
 
+
 **Example**:
 ```bash
 git remote add origin https://github.com/john-doe/orangehrm-automation.git
